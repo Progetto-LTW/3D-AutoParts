@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 3D Automotive - 3D AutoParts </title>
+
+    <link rel="stylesheet" href="style.css">
+
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="control3D.js"></script>
+
+    <!--link per navbar responsive boostrap 4-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+   
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+   
+
+</head>
+<body>
+<!-- Navbar start -->
+<nav class="navbar navbar-expand-md fixed-top" style="background-color:rgb(107, 82, 250)">
+    <a class="navbar-brand" href="../index.php">  <img src="logo.JPG" widht="150px" height="50px"></a>
+    <button class="navbar-toggler" style="color:white" type="button"  data-toggle="collapse" data-target="#collapsibleNavbar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+     
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" style="color:white" href="../index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:white" href="../cart_system/index.php">Parts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:white" href="3d-form.html">3D Automotive</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:white" href="../about-us/index.html">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbardrop" data-toggle="dropdown">
+              Contatti
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Chiama Federica: 12345689</a>
+              <a class="dropdown-item" href="#">Chiama Alessio: 93284281</a>
+                  
+            </div>
+        </li>
+    
+        
+    </ul>
+         
+    </div>
+  </nav>
+  <!-- Navbar end -->
+    
+
+<div >
+    <div class="content-1">
+        <div class="first">
+            <div class="form">
+                <h1 id="t-mob" class="toggle" role="button">NON</h1>  <!-- h1 x responsive -->
+                <!-- form "ho i file 3d" -->
+                <form action="form1.php" method="POST" name="formSI" class="yes-file" onsubmit="return valida3D_1();">
+                    
+                    <h2>HO I MIEI FILE 3D</h2>
+                        <div class="input" id="fullname">
+                            <input type="text" class="input-txt" name="nome" placeholder="nome.." >
+                            <input type="text" class="input-txt" name="cognome" placeholder="cognome.." >
+                        </div>
+
+                        <div class="input">
+                            <input type="email" class="input-txt" name="email" placeholder="your@email.com" >
+                        </div>
+                        
+                        <label for="#stamp-type" style="font-weight: bold;">seleziona il metodo di stampa:</label>
+                        <div id="stamp-type" aria-required="">
+                            <input type="radio" id="PCB" name="metodo" required> 
+                            <label for="#PCB">PCB</label> 
+                            <input type="radio" id="PSA" name="metodo" required> 
+                            <label for="#PSA">PSA</label> 
+                            <input type="radio" id="Resina" name="metodo" required> 
+                            <label for="#Resina">Resina</label> 
+                        </div>
+
+                        <label for="#3d-file" style="font-weight: bold;"> inserisci il tuo file .glb / .gltf </label>
+                        <div id="3d-file">
+                        <input type="file" id="3d_file" name="file" accept=".glb, .gltf" > <br> <!-- aggiunge file dal tuo pc  -->
+                        </div>
+                    
+                        <button id="invia ordine"  type="submit">invia ordine</button>          
+                </form>
+            </div>
+        </div>
+
+        <!----------------------------------------------------------->
+        <div></div>
+    
+
+        <div class="second">
+            <div class="form">
+                <!-- form "non ho i file 3d" -->
+                <form action="form2.php" method="POST" name="formNO" class="no-file" onsubmit="return valida3D_2();">
+                    <h2> <span id="non" >NON</span> HO I FILE 3D</h2>
+                    <div class="input" id="fullname">
+                        <input type="text" name="nome" class="input-txt" placeholder="nome.." >
+                        <input type="text" name="cognome" class="input-txt" placeholder="cognome.." >
+                    </div>
+
+                    <div class="input">
+                        <input type="email" class="input-txt" placeholder="your@email.com" name="email" id="" >
+                    </div>
+                            
+                    <label for="#3d-file" style="font-weight: bold;"> inserisci le foto per il progetto </label>
+                    <div id="3d-file">
+                        <input type="file" id="prjct_img" name="file" accept="" required> <br> <!-- aggiunge file dal tuo pc  -->
+                    </div>
+
+                    <textarea name="descrizione" id="" cols="30" rows="10" placeholder="spiegaci meglio il tuo progetto.."></textarea>
+                        
+                    <button id="invia ordine"  type="submit">invia ordine</button>          
+                </form>
+            </div>
+        </div>
+
+    
+        <!-- img e txt su animazioni di dx -->
+        <div class="first-img" style="z-index: 5;">
+            <img src="motor3d.jpg" id="img1" >
+
+            <div class="first-img-txt">
+                <h1>Compila i campi per stampare il tuo ordine 3D</h1>
+                <p> inserisci i tuoi file 3D per ricevere direttamente a casa la stampa dei tuoi sogni <br>
+                    Non hai nessun file 3D da inviarci? Vorresti stampare una tua idea? Rivolgiti al nostro team di progettazione 3D. <br> 
+                    Utilizzeranno i migliori CAD-3D sul mercato per far diventare realtà ogni tua fantasia.</p>
+                <p style="color:#fff; text-decoration: underline; cursor: pointer;">clicca qui per chiedere direttamente a loro!</p>
+            </div>
+
+            <!-- img e txt su animazioni di sx -->
+
+            <img src="cad design.jpg" id="img2">
+
+            <div class="second-img-txt" >
+                <h1>Progetteremo noi la tua idea</h1>
+                <p>Se non hai possibilità di progettare tu stesso la tua idea 3D non preoccuparti, ci penseremo noi a farlo al posto tuo! <br>
+                    Un team di esperti ti seguirà passo passo nella creazione della tua idea. Tramite CAD di ultima generazione e metodologie avanzate. <br>
+                    Ogni step effettuato verrà sempre visionato dal cliente prima di essere mandato in stampa, in caso il risultato non sia quello desiderato si continuerà la progettazione. <br>
+                    <br>
+                    Se invece possiedi già dei file 3D che vorresti solamente mandare in stampa..
+                </p>
+                <p style="color:#fff; text-decoration: underline; cursor: pointer;">..clicca qui per inviarceli, al resto penseremo noi!</p>
+
+            </div>
+        </div>
+        
+    
+    </div>    <!-- end content-1 -->
+
+</div>
+
+<!-- articolo su 3d automotive -->
+<div class="article" >
+    <h2 style="text-transform:uppercase; text-align: center;">i modi in cui la stampa 3D sta cambiando il settore automobilistico</h2>
+    <p>
+        Risulta ancora presto per acquistare un’automobile interamente stampata in 3d da un concessionario, ma la direzione che è stata presa non è del tutto quella sbagliata. È ormai da diverso tempo che la stampa e modellazione 3d fanno parte del processo produttivo delle automobili, ed ogni anno tendono a prendere sempre più piede all’interno delle grandi e piccole aziende. 
+    Il primo vero step per la stampa 3d nel settore automobilistico è avvenuto con la prototipazione rapida. I progettisti del settore riescono a realizzare in tempi brevissimi prototipi di parti fisiche, d’assemblaggio o addirittura modelli in scala di un’intera auto. Questo permette l’abbattimento dei costi esorbitanti ed un notevole aumento di velocità nei cicli d’iterazione. </p>
+    
+    <h3>Reinventare i processi di prototipazione</h3>
+    <p>
+    Oltre il fattore puramente aziendale ed economico, l’utilizzo di stampanti 3D per la produzione riesce ad avere anche un grand’impatto artistico. La flessibilità che garantisce è talmente elevata da poter consegnare al cliente progetti personalizzati nei minimi dettagli lasciando libera anche la creatività degli ingegneri che ci lavorano per garantire dei prodotti fatti su misura sul cliente. Diversi esempi si possono ritrovare nell’officina dei ragazzi di Ringbrothers che utilizzano questi metodi per la realizzazione di parti destinate all’uso finale (bocchette di areazione, ricambi vari per la carrozzeria). 
+    </p>
+
+
+    <h3>Creare parti complesse, personalizzabili e ad alte prestazioni</h3>
+    <p>Non solo le piccole aziende tendono ad utilizzare la stampa in 3D per la creazione dei loro prodotti, anche grandi industrie hanno iniziato ad entrare nel mercato. Volkswagen, nota casa tedesca, ha riprodotto in serie il Microbus ’62 “Type 20“ implementando miglioramenti resi possibili dalla stampa 3D (tra cui ruote e copri cerchi). Anche colossi come la Bentley hanno deciso di spingere il piede sull’acceleratore in direzione “innovazione”. L’avanzata stampa in 3D in metallo usata dalla casa di produzione di lusso britannica importa nella Bentley Speed 6, parti molto più dettagliate e complesse rispetto i suoi precedenti modelli. Stesso discorso vale per Bugatti che con l’utilizzo di stampa 3D in metallo riesce a lavorare a basso costo pezzi particolari e complessi come le pinze a 8 pistoni in titanio. L'utilizzo della stampa 3D non solo ha permesso a Bugatti di produrre la pinza in scala come richiesto, ma ha migliorato ulteriormente il suo potenziale a livello di prestazioni, riducendo di molto il peso del componente e rendendolo notevolmente più rigido e resistente rispetto all'alternativa di produzione convenzionale (alluminio). </p>
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 60%; margin-left:20% ;">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F0c%2Fef%2F0cefe955-e1a5-4260-9968-3e726ca955c3%2Fimage3.jpg__1354x0_q85_subsampling-2.jpg&w=1920&q=75" class="d-block w-100" >
+        </div>
+        <div class="carousel-item">
+            <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2Fb0%2F42%2Fb042ab2a-6ea1-45c3-b1cb-7a0d1eb51b36%2Fimage12.jpg__1354x0_q85_subsampling-2.jpg&w=750&q=75" class="d-block w-100" >
+        </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <h3>Il problema dei ricambi</h3>
+    <p>I ricambi hanno rappresentato una sfida per il settore automobilistico.  in assenza di parti di ricambio facilmente reperibili, il valore dei prodotti diventa più problematico e le riparazioni risultano complicate. Inoltre, la produzione di parti di ricambio in previsione di una domanda futura comporta grandi spese di stoccaggio. La stampa 3D ha tutte le carte in regola per avere un impatto positivo sul problema delle parti di ricambio nel settore automobilistico. per risolvere il problema delle parti di ricambio grazie alla stampa 3D sono fondamentali due cose: materiali alternativi con prestazioni equiparabili alle loro controparti tradizionali e un buon rapporto costo-benefici. Grazie all'uso del software CAD, i design di tutte le parti possono essere conservati come copia digitale, rendendo quindi inutile la necessità di avere un inventario. Con la proliferazione delle stampanti 3D da banco, una parte di ricambio potrebbe essere prodotta in negozio su richiesta del cliente e l’accessibilità della tecnologia incoraggerà i fornitori ad aprire nuovi spazi per fornire con facilità pezzi di ricambio stampati in 3D. Anche i componenti che non esistono più possono essere realizzati su richiesta tramite dei processi di ingegneria inversa che si basano su delle scansioni digitali di parti già esistenti. </p>
+    <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F90%2F68%2F9068b88b-5777-4d05-b85e-145301e16200%2Fimage15.png__1354x0_q85_subsampling-2.png&w=1080&q=75" style="width:60%; margin-left: 20%;">
+    <p>Le stampanti 3D possono migliorare l'efficienza nella fase generale di produzione delle parti. Come fa notare Edman, "le tecniche di stampa 3D diventeranno più comuni nei casi in cui è possibile sfruttare i benefici della produzione additiva per unire i componenti tramite piegatura. Potresti avere un assemblaggio composto da 6 o 7 elementi che ora puoi combinare in un'unica parte stampata. Risparmierai così tempo e denaro, anche se la singola parte potrebbe risultare più costosa." Rinforzando le parti, i metodi di stampa 3D possono anche contribuire a ridurre il peso e migliorare l'efficienza dei consumi di carburante. La vasta gamma di materiali offerti dalla stampa 3D sta iniziando a soddisfare i requisiti meccanici dei diversi componenti di un veicolo. </p>
+
+
+    <h3>I progetti più brillanti del settore</h3>
+
+    <div id="carouselProject" class="carousel slide" data-bs-ride="carousel" style="width: 80%;margin-left: 10%;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="prototype">
+                    <div id="carousel-txt">
+                        <p> <b>Light Cocoon di EDAG</b> <br><br> questo concetto ha una struttura portante simile a un ramo stampato in 3D che si ispira alla natura. Nonostante la struttura utilizzi meno materiale di un telaio normale e vengono soddisfatti tutti i requisiti dei componenti</p>
+                    </div>
+                    <div id="carousel-img">
+                        <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F38%2Ff8%2F38f8cd96-d984-4969-8762-695e3df5cd94%2Fimage1.png__1354x0_q85_subsampling-2.png&w=1080&q=75" class="d-block w-100"  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="prototype-R">
+                    <div id="carousel-img">
+                        <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F09%2F3a%2F093adfd8-ce3d-4c1c-95ac-631327c41db0%2Fimage6.png__1354x0_q85_subsampling-2.png&w=1080&q=75" class="d-block w-100" >
+                    </div>
+                    <div id="carousel-txt">
+                        <p> <b>The Blade</b> <br><br> la prima superauto stampata in 3D, progettata per essere prodotta con materiali a basso costo come tubi in fibra di carbonio e barre di alluminio, che vengono combinati con parti metalliche stampate in 3D, progettate per ottenere un peso ridotto e prestazioni elevate. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="prototype">
+                    <div id="carousel-txt">
+                        <p><b>Strati</b> <br><br> la prima auto elettrica che utilizza la stampa 3D durante il processo di produzione. L'auto è composta da 50 parti singole,  Il suo telaio e la maggior parte degli elementi strutturali sono stati stampati in 3D in meno di 24 ore, e l'azienda punta a raggiungere tempi di realizzazione inferiori alle 10 ore.</p>
+                    </div>
+                    <div id="carousel-img">
+                        <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F91%2F21%2F9121fa73-88ab-4d8b-8acd-f3d79c3ad874%2Fimage10.jpg__1354x0_q85_subsampling-2.jpg&w=1920&q=75" class="d-block w-100" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="prototype-R">
+                    <div id="carousel-img">
+                        <img src="https://formlabs.com/_next/image/?url=https%3A%2F%2Fformlabs-media.formlabs.com%2Ffiler_public_thumbnails%2Ffiler_public%2F8f%2F3b%2F8f3bf242-2aa1-400d-9aa4-d58ec2c5e08e%2Fimage14.jpg__1354x0_q85_subsampling-2.jpg&w=1080&q=75" class="d-block w-100" >
+                    </div>
+                    <div id="carousel-txt">
+                        <p> <b> LSEV </b> <br><br> potrebbe essere la prima auto elettrica stampata in 3D "di massa". Oltre al telaio, ai sedili e al parabrezza, tutte le parti visibili della LSEV vengono stampate in 3D. Grazie all'ampio uso della stampa 3D, l'azienda è riuscita a ridurre il numero di componenti da 2000 a soli 57, ottenendo un design leggero che pesa solo 450 chili.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProject" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselProject" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+   
+</div>  <!-- end article -->
+
+
+  <!--start footer-->
+
+		<footer class="footer-distributed">
+
+			<div class="footer-left">
+          <a href="../index.php"><img src="../images/logo.JPG" width="125px" ></a>
+				
+
+				<p class="footer-links">
+					<a href="../index.php">Home</a>
+					|
+					<a href="../cart_system/index.php">Parts</a>
+					|
+					<a href="3d-form.html">3D Automotive</a>
+					|
+					<a href="../about-us/index.html">About us</a>
+				</p>
+
+				<p class="footer-company-name">© 2021 3D AutoParts Solutions Printing Pvt.</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>Viale dello Scalo S. Lorenzo, 82, </span>
+              00159 Roma RM</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+91 22-27782183</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@eduonix.com">support@3Dautoparts.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>Chi siamo</span>
+					Specializzati nella vendita e stampa 3D di ricambi auto.</p>
+                    <div class="footer-icons">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+    </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+    </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+    </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+    </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+    </svg></a>
+                    </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.8293735613547!2d12.519611314736265!3d41.89652647224104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6185205c9bfd%3A0x773e8360f9a9e5e!2sEdificio%20Marco%20Polo!5e0!3m2!1sit!2sit!4v1620342095868!5m2!1sit!2sit" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </footer>
+    
+        <!--end footer-->
+
+ <!-- Option 1: Bootstrap Bundle with Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+</html>

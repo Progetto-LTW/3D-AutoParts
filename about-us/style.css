@@ -1,0 +1,321 @@
+ 
+ body{
+   background-color: rgba(255, 255, 255,) !important;
+  
+ }
+
+ 
+ #team {
+   text-align: center;
+   font-weight: lighter;
+   transform-style: initial;
+   margin-top: 30px;
+ }
+ #line{
+   height: 3px;
+   width: 70%;
+   background: black;
+   margin-left: 15% ;
+ }
+ .about-us{
+  display: flex; 
+  justify-content: space-around;
+  background-color: #fff;
+ }
+ 
+ /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+ .flip-card {
+    background-color: transparent;
+    width: 400px;
+    height: 500px;
+    perspective: 1000px;
+    margin-top: 5%;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden; 
+    transform:rotateX(0deg);
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+   background-color: rgb(107, 82, 250) ;
+    color: rgb(255, 255, 255);
+  }
+  .flip-card-front .bg-img{
+    width: 398px;
+    height: 400px;
+    clip-path: polygon(100% 0, 100% 45%, 49% 65%, 0 46%, 0 0);
+    z-index: -100;
+  }
+  .flip-card-front .avatar{
+    border: black solid 5px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 100;
+    position: relative;
+    top: -50%;
+  }
+  .flip-card-front .name-job{
+    position: relative;
+    top: -50%;
+  }
+  
+
+  
+  /* Style the back side */
+  .flip-card-back {
+   background-color: rgb(107, 82, 250) ;
+
+    color: rgb(255, 255, 255);
+    transform: rotateY(180deg);
+  }
+  
+  
+
+  .fab{
+    font-size: 40px;
+    cursor: pointer;
+  }
+  
+  .social-icon{
+    list-style: none;
+    color: white;
+  }
+  .social-icon li{
+    display: flex;
+    vertical-align: middle;
+  }
+  .social-icon p{
+    padding: 10px;
+  }
+  .social-icon li:hover, .social-icon li p:hover {
+    color: coral;
+  }
+
+
+
+  /* media querys */
+
+  @media screen and (max-width: 880px) {
+    .about-us{
+      flex-direction: column;
+      align-items: center;
+    }
+    .flip-card-front, .flip-card-back{
+      width: 100%;
+    }
+  }
+  
+/* The footer is fixed to the bottom of the page */
+
+footer{
+	/* position: fixed; */
+	bottom: 0;
+}
+
+@media (max-height:800px){
+	footer { position: static; }
+	header { padding-top:40px; }
+}
+
+
+.footer-distributed{
+  background-color:rgb(107, 82, 250);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 50px 50px 60px 50px;
+	margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 30%;
+}
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px , cursive;
+	margin: 0;
+}
+
+/* The company logo */
+
+.footer-distributed .footer-left img{
+	width: 30%;
+}
+
+.footer-distributed h3 span{
+	color:  #e04a1c;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8c8d8f;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+
+.footer-distributed .footer-center i{
+	background-color: #e95d45;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #e95d45;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 30%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #e95d45;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+
+/* Here is the code for Responsive Footer */
+/* You can remove below code if you don't want Footer to be responsive */
+
+
+@media screen and (max-width: 880px) {
+
+
+  
+  footer .footer-distributed {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  footer iframe{
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+  }
+  .footer-right, .footer-left, .footer-center{
+    display: flex !important;
+    flex-direction: column;
+    width: 100% !important;
+    text-align: center;
+  }
+}
+
+
