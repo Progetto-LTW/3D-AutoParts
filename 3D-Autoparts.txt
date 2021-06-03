@@ -1,0 +1,31 @@
+il sito 3D Autoparts è il progetto sviluppato da Federica Bellini e Alessio Moriconi. 
+é salvato su localhost e gestito tramite XAMPP che permette l'accesso a PHPmyAdmin con il quale è stato gestito il database per lo shop, per l'utenza registrata e per i servizi offerti.
+
+la prima pagina visitabile è newHome.html dalla quale si può iniziare il percorso all'interno del nostro sito. risulta una pagina di presentazione che riporta semplicemente alla pagina di login
+
+nella cartella di login si trova il file index.html che è la pagina dove si trovano le form per login e registrazione collegate con il database. Questa pagina permette l'accesso vero e proprio all'interno del sito
+login_fall e reg_fall sono due pagine aggiuntive nelle quali si viene reindirizzati una volta sbagliato i campi di login o registrazione. 
+login.php e registrazione.php sono le pagine che permettono l'invio dei dati dalle form al DB. 
+il file app.js gestisce invece la validazione delle form e viene anche sfruttata per effettuare delle animazioni per il passaggio da una form ad un'altra.
+
+una volta effettuato correttamente il login ci si trova all'interno del sito nella pagina index.php che è la nostra home page reale.
+A questa pagina è collegato il file search.php che permette di verificare la disponibilità dei prodotti presenti nelle tabelle del database tramite chiamate asincrone in ajax. 
+
+cart_system è una cartella che contiene tutti i file relativi alla pagina dello shop e alla gestione del carrello, ordini e checkout. 
+index.php è qui la pagina principale dove possiamo visualizzare i prodotti acquistabili dall'utente. Ogni prodotto qui presente può essere visualizzato al dettaglio tramite il bottone "vedi dettagli" presente, 
+si verrà reindirizzati alla pagina single-product.php presente nella sotto cartella 'product'. 
+cart.php è il carrello, dove i prodotti selezionati rimarranno finchè non verrà effettuato un pagamento o verranno eliminati manualmente dall'utente. Con il bottone di checkout si passerà dunque al "pagamento".
+Il "pagamento" verrà effettuato tramite la compilazione di una form con dati personali ed una volta inviata azzererà i prodotti all'interno del carrello e nella tabella "cart" che li conteneva nel database.
+Action.php gestisce tutte le funzionalità descritte precedentemente nel carello.
+
+3D-form.html è invece la pagina per la richiesta di preventivi per effettuare stampe in 3d di alcuni prodotti. Qui si trovano le due form che sono collegate con il databse tramite i file form1.php e form2.php . 
+I controlli sulle form vengono effettuati tramite control3D.js che gestisce anche le animazioni presenti tra le form.
+
+infine, in about-us, il file index.html presenta due card con i contatti del team di sviluppo (Alessio e Federica). 
+
+ogni pagina visitabile del sito risulta responsive tramite l'uso delle media query presenti in tutti i file .css collegati alle pagine sopra elencate. 
+
+
+
+
+https://github.com/Progetto-LTW/3D-AutoParts
