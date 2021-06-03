@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Accedi o Regitrati - 3D-AutoParts</title>
+  </head>
+
+  <body>
+
+
+
+
+    <div class="container">
+      <div class="forms-container">
+        <!--    Login    -->
+        <div class="signin-signup">
+  <!------------ metodo post per invio al database ---------->
+          <form method="post" action="login.php" name="login" class="sign-in-form" onsubmit="return validaLogin()">
+            <h2 class="title">Accedi</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+            <input type="submit" value="Accedi" name="Signin" class="btn solid" />
+          </form>
+          
+          <!--   registrazione   -->
+          <form method="post" action="registrazione.php" name="regist" class="sign-up-form" onsubmit="return validaReg()">
+            <h2 class="title">Registrazione</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" name="email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+            <input type="submit" class="btn" value="Crea account" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Sei nuovo?</h3>
+            <p>
+              Iscriviti per rimanere sempre sul PEZZO delle ultime notivà per la tua automobile! 
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Registrati
+            </button>
+          </div>
+          <img src="img/offRoad.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Sei già dei nostri?</h3>
+            <p>
+              Effettua il login per non perderti le ultime novità
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Accedi
+            </button>
+          </div>
+          <img src="img/city_driver.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- animazioni e validazioni form -->
+    <script src="app.js"></script>
+  </body>
+</html>
